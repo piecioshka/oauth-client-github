@@ -1,0 +1,58 @@
+{
+  "name": "oauth-client-github",
+  "description": "🔐 OAuth 2.0 client for GitHub",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Piotr Kowalski",
+    "email": "piecioshka@gmail.com",
+    "url": "https://piecioshka.pl/"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist/ types/",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "start": "node demo/server/main.js",
+    "test": "vitest",
+    "test:ci": "vitest --run",
+    "precoverage": "rm -rf coverage/",
+    "coverage": "vitest --coverage --coverage.include src/",
+    "version": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "@vitest/coverage-v8": "^2.1.2",
+    "express": "^4.21.1",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/piecioshka/oauth-client-github.git"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "files": [
+    "dist",
+    "types",
+    "index.js",
+    "package.json",
+    "LICENSE",
+    "README.md",
+    "!**/*.spec.*"
+  ],
+  "keywords": [
+    "oauth",
+    "github",
+    "client",
+    "auth",
+    "authorization",
+    "authentication",
+    "security",
+    "token",
+    "access"
+  ],
+  "main": "./index.js",
+  "types": "./types/index.d.ts"
+}

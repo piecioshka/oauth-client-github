@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "name": "oauth-client-github-demo",
+  "description": "🔐 Demo of OAuth 2.0 client for GitHub",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Piotr Kowalski",
+    "email": "piecioshka@gmail.com",
+    "url": "https://piecioshka.pl/"
+  },
+  "scripts": {
+    "build": "echo 'No build needed'",
+    "start": "node server/main.js",
+    "dev": "nodemon server/main.js",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "oauth-client-github": "file:../"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.7",
+    "vercel": "^37.8.0"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

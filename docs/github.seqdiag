@@ -1,0 +1,24 @@
+title: GitHub OAuth2 Flow
+
+participant User as U
+participant Client side as C
+participant Server side as S
+participant GitHub API as G
+
+U->C: GET /
+C-->U:
+U->C: click "Sign in"
+C->S: GET /auth
+note over S: buildTemporaryTokenUrl({ state })
+S->G: 302 redirect /login/oauth/authorize?client_id=...
+note over G: generate code
+note over G: 302 redirect to "redirect_uri"
+G-->S: 302 redirect /auth/callback?code=...
+note over S: requestAccessToken({ code })
+S->G: POST /login/oauth/access_token (payload)
+G-->S: { "access_token": "..." }
+S-->C: Set cookie & 302 redirect / (state)
+note over C: use access_token cookie
+C->G: GET /user
+G-->C: { "login": "..." }
+C-->U: render profile
