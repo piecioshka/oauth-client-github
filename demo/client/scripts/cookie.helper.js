@@ -1,7 +1,7 @@
 const CookieManager = {
   get: (name) => {
     return document.cookie
-      .split(", ")
+      .split("; ")
       .find((cookie) => {
         const [key, _value] = cookie.split("=");
         return key === name;
