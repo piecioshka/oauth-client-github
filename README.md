@@ -3,8 +3,8 @@
 [![node version](https://img.shields.io/node/v/oauth-client-github.svg)](https://www.npmjs.com/package/oauth-client-github)
 [![npm version](https://badge.fury.io/js/oauth-client-github.svg)](https://badge.fury.io/js/oauth-client-github)
 [![downloads count](https://img.shields.io/npm/dt/oauth-client-github.svg)](https://www.npmjs.com/package/oauth-client-github)
-[![license](https://img.shields.io/npm/l/oauth-client-github.svg)](https://piecioshka.mit-license.org)
 [![size](https://packagephobia.com/badge?p=oauth-client-github)](https://packagephobia.com/result?p=oauth-client-github)
+[![license](https://img.shields.io/npm/l/oauth-client-github.svg)](https://piecioshka.mit-license.org)
 [![github-ci](https://github.com/piecioshka/oauth-client-github/actions/workflows/testing.yml/badge.svg)](https://github.com/piecioshka/oauth-client-github/actions/workflows/testing.yml)
 
 🔐 OAuth 2.0 client for GitHub
