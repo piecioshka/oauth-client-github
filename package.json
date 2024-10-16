@@ -13,8 +13,8 @@
     "build": "tsc",
     "watch": "tsc --watch",
     "start": "node demo/server/main.js",
-    "test": "vitest",
-    "test:ci": "vitest --run",
+    "test": "vitest --run",
+    "test:watch": "vitest",
     "precoverage": "rm -rf coverage/",
     "coverage": "vitest --coverage --coverage.include src/",
     "version": "npm run build"
