@@ -34,7 +34,6 @@
     "node": ">=16"
   },
   "files": [
-    "demo",
     "dist",
     "types",
     "index.js",
