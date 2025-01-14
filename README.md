@@ -17,13 +17,13 @@
 
 💡 Source code of this app in [demo/](/demo/) directory.
 
-## Installation
+## Usage
+
+Installation:
 
 ```bash
 npm install oauth-client-github
 ```
-
-## Usage
 
 ```javascript
 // server.js
