@@ -1,0 +1,26 @@
+{
+  "builds": [
+    {
+      "src": "demo/server/main.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "demo/client/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/demo/client/index.html"
+    },
+    {
+      "source": "/scripts/(.*)",
+      "destination": "/demo/client/scripts/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/demo/server/main.js"
+    }
+  ]
+}
