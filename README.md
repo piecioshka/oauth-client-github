@@ -67,28 +67,59 @@ console.log({ user }); // A user with private data! 🎉
 
 ## Specification
 
-Sequence diagram with the _OAuth 2.0 flow for GitHub_ is defined in [docs/](/docs/) directory.
+Sequence diagram with the _OAuth 2.0 flow for GitHub_:
+
+```mermaid
+---
+title: GitHub OAuth2 Flow
+---
+sequenceDiagram
+    participant U as User
+    participant C as Client side
+    participant S as Server side
+    participant G as GitHub API
+
+    U->>C: GET /
+    C-->>U: page with "Sign in"
+    U->>C: click "Sign in"
+    C->>S: GET /auth
+    Note over S: buildTemporaryTokenUrl({ state })
+    S->>G: 302 redirect /login/oauth/authorize?client_id=...
+    Note over G: generate code
+    Note over G: 302 redirect to "redirect_uri"
+    G-->>S: 302 redirect /auth/callback?code=...
+    Note over S: requestAccessToken({ code })
+    S->>G: POST /login/oauth/access_token (payload)
+    G-->>S: { "access_token": "..." }
+    S-->>C: Set cookie & 302 redirect / (state)
+    Note over C: use access_token cookie
+    C->>G: GET /user
+    G-->>C: { "login": "..." }
+    C-->>U: render profile
+```
 
 ## Prerequisites: Create new OAuth App
 
 1. Open a page: https://github.com/settings/developers and click on the "New OAuth App"
 2. Fill the form:
-  - Application name _(required)_
-    - eg. `oauth-client-github`
-    - _TIP: it will be visible only for you_
-  - Homepage URL _(required)_
-    - eg. `https://example.com`
-    - _TIP: it will be visible only for you_
-  - Application description _(optional)_
-  - Authorization callback URL _(required)_
-    - eg. `http://localhost:3000/auth/callback`
-    - _TIP: you need to put real URL to your app_
-    - ⚠️ This field will be cross-checked with your param `redirect_uri`
-  - Enable Device Flow _(optional)_
+
+- Application name _(required)_
+  - eg. `oauth-client-github`
+  - _TIP: it will be visible only for you_
+- Homepage URL _(required)_
+  - eg. `https://example.com`
+  - _TIP: it will be visible only for you_
+- Application description _(optional)_
+- Authorization callback URL _(required)_
+  - eg. `http://localhost:3000/auth/callback`
+  - _TIP: you need to put real URL to your app_
+  - ⚠️ This field will be cross-checked with your param `redirect_uri`
+- Enable Device Flow _(optional)_
+
 3. Generate a new client secret by clicking on the "Generate a new client secret"
 4. Copy secret and save to config file (like `.env`):
-    - Client ID
-    - Client Secret
+   - Client ID
+   - Client Secret
 
 ## Parameters
 
