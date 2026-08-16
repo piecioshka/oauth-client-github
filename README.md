@@ -7,13 +7,31 @@
 [![license](https://img.shields.io/npm/l/oauth-client-github.svg)](https://piecioshka.mit-license.org)
 [![github-ci](https://github.com/piecioshka/oauth-client-github/actions/workflows/testing.yml/badge.svg)](https://github.com/piecioshka/oauth-client-github/actions/workflows/testing.yml)
 
-🔐 OAuth 2.0 client for GitHub
+🔐 Zero-dependency OAuth 2.0 client for GitHub
 
 > Give a ⭐️ if this project helped you!
+
+## Features 🚀
+
+- 📦 Zero runtime dependencies _(built on the native `fetch`)_
+- ⚡ Two-method API: `buildTemporaryTokenUrl()` and `requestAccessToken()`
+- 🧩 Framework-agnostic _(works with Express, Fastify, or bare `node:http`)_
+- 📘 TypeScript types included out of the box
+- 🔒 Supports the `state` parameter to prevent CSRF attacks
+- 🧪 Covered by unit tests running in CI
+
+## Why? 🤔
+
+Passport and similar middlewares hide the OAuth flow behind framework-specific
+plugins. This package does the opposite: two explicit functions that map 1:1 to
+the two steps of the OAuth 2.0 authorization code flow, so you see exactly what
+happens between your app and GitHub.
 
 ## Preview 🎉
 
 <https://oauth-client-github-demo.vercel.app/>
+
+![Demo of the GitHub OAuth flow](/demo/demo.gif)
 
 💡 Source code of this app in [demo/](/demo/) directory.
 
