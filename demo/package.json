@@ -13,18 +13,17 @@
     "build": "echo 'No build needed'",
     "start": "node server/main.js",
     "dev": "nodemon server/main.js",
-    "deploy": "vercel --prod"
+    "deploy": "npx vercel --prod"
   },
   "dependencies": {
     "oauth-client-github": "^1.0.1"
   },
   "devDependencies": {
-    "@types/node": "^22.7.5",
+    "@types/node": "^26.2.0",
     "dotenv": "^17.4.2",
-    "express": "^4.21.1",
-    "morgan": "^1.10.0",
-    "nodemon": "^3.1.7",
-    "vercel": "^37.8.0"
+    "express": "^5.2.1",
+    "morgan": "^1.11.0",
+    "nodemon": "^3.1.14"
   },
   "engines": {
     "node": ">=20"
