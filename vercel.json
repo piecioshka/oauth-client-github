@@ -19,6 +19,10 @@
       "destination": "/demo/client/scripts/$1"
     },
     {
+      "source": "/styles/(.*)",
+      "destination": "/demo/client/styles/$1"
+    },
+    {
       "source": "/(.*)",
       "destination": "/demo/server/main.js"
     }
