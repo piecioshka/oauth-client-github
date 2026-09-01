@@ -28,23 +28,23 @@ app.get("/auth", async (req, res) => {
 
 // Allow only same-origin redirect targets to prevent an open redirect.
 function buildRedirectPath(state) {
-  if (!state) {
+  const raw = Array.isArray(state) ? state[0] : state;
+  if (typeof raw !== "string" || raw.length === 0) {
     return "/";
   }
+
+  const trimmed = raw.trim();
+  if (!trimmed.startsWith("/") || trimmed.startsWith("//") || trimmed.startsWith("/\\")) {
+    return "/";
+  }
+
   try {
-    const url = new URL(String(state), "http://localhost");
-    const target = url.pathname + url.search + url.hash;
-    if (
-      target.startsWith("/") &&
-      !target.startsWith("//") &&
-      !target.startsWith("/\\")
-    ) {
-      return target;
-    }
+    const url = new URL(trimmed, "http://localhost");
+    return url.pathname + url.search + url.hash;
   } catch {
     // Ignore unparsable values and fall back to the default path.
+    return "/";
   }
-  return "/";
 }
 
 app.get("/auth/callback", async (req, res) => {
