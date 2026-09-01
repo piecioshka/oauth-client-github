@@ -26,6 +26,27 @@ app.get("/auth", async (req, res) => {
   res.redirect(url);
 });
 
+// Allow only same-origin redirect targets to prevent an open redirect.
+function buildRedirectPath(state) {
+  if (!state) {
+    return "/";
+  }
+  try {
+    const url = new URL(String(state), "http://localhost");
+    const target = url.pathname + url.search + url.hash;
+    if (
+      target.startsWith("/") &&
+      !target.startsWith("//") &&
+      !target.startsWith("/\\")
+    ) {
+      return target;
+    }
+  } catch {
+    // Ignore unparsable values and fall back to the default path.
+  }
+  return "/";
+}
+
 app.get("/auth/callback", async (req, res) => {
   const { code, state } = req.query;
   const response = await githubAuth.requestAccessToken({
@@ -36,7 +57,7 @@ app.get("/auth/callback", async (req, res) => {
     return;
   }
   res.cookie("token", response.access_token);
-  res.redirect(state ? String(state) : "/");
+  res.redirect(buildRedirectPath(state));
 });
 
 app.listen(port, () => {
