@@ -1,5 +1,5 @@
-const { describe, it, expect } = require("vitest");
-const { buildRedirectPath } = require("./main.js");
+import { describe, it, expect } from "vitest";
+import { buildRedirectPath } from "./main.js";
 
 describe("buildRedirectPath", () => {
   it("falls back to the app root for empty or invalid state values", () => {
