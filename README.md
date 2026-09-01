@@ -5,7 +5,7 @@
 [![downloads count](https://img.shields.io/npm/dt/oauth-client-github.svg)](https://www.npmjs.com/package/oauth-client-github)
 [![size](https://packagephobia.com/badge?p=oauth-client-github)](https://packagephobia.com/result?p=oauth-client-github)
 [![license](https://img.shields.io/npm/l/oauth-client-github.svg)](https://piecioshka.mit-license.org)
-[![github-ci](https://github.com/piecioshka/oauth-client-github/actions/workflows/testing.yml/badge.svg)](https://github.com/piecioshka/oauth-client-github/actions/workflows/testing.yml)
+[![github-ci](https://github.com/piecioshka/oauth-client-github/actions/workflows/ci.yml/badge.svg)](https://github.com/piecioshka/oauth-client-github/actions/workflows/ci.yml)
 
 🔐 Zero-dependency OAuth 2.0 client for GitHub
 
